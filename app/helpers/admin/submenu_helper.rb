@@ -29,7 +29,8 @@ module Admin::SubmenuHelper
       # and under multi_site this builds a site-chooser whenever the foreground model is site_scoped
 
       def site_chooser
-        return "" unless admin? && defined?(Site) && controller.sited_model? && Site.several?
+        Rails.logger.warn "controller.template_name is #{controller.template_name}"
+        return "" unless admin? && defined?(Site) && controller.sited_model? && controller.template_name == 'index' && Site.several?
         options = Site.find(:all).map{ |site| "<li>" + link_to( site.name, "#{request.path}?site_id=#{site.id}", :class => site == current_site ? 'fg' : '') + "</li>" }
         chooser = %{<div id="site_chooser">}
         chooser << link_to("sites", admin_sites_url, {:id => 'show_site_list', :class => 'expandable'})
