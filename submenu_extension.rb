@@ -17,6 +17,7 @@ class SubmenuExtension < Radiant::Extension
     Radiant::AdminUI.send :include, Submenu
     ApplicationHelper.send :include, Admin::SubmenuHelper
     ApplicationController.send :include, ResourceControllerExtensions
+    UserActionObserver.instance.send :add_observer!, SubmenuLink
 
     unless defined? admin.submenu_links
       Radiant::AdminUI.send :include, SubmenuAdminUI
