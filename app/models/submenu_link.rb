@@ -14,5 +14,9 @@ class SubmenuLink < ActiveRecord::Base
   def global?
     !user
   end
+  
+  def shown_for?(this_user)
+    global? || user == this_user
+  end
 
 end

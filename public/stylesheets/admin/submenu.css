@@ -14,10 +14,10 @@
   width: 100%;
   color: #c1bca4;
   background-color: #EAE3C5;
-  text-align: right;
   height: 20px;
   padding-top: 4px;
   overflow: hidden;
+  text-align: right;
 }
 
 #navigation #submenu #submenu_links {
@@ -30,7 +30,7 @@
 }
 
 #navigation #submenu div {
-  margin: 0 0 0 20px;
+  margin: 0 25px;
 }
 
 #navigation #submenu a, #navigation #submenu a:visited {
@@ -149,4 +149,6 @@ ul#site_list a:hover {
   color: #7d796c;
   font-size: 85%;
 }
+
+
 

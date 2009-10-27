@@ -23,7 +23,8 @@ class SubmenuExtension < Radiant::Extension
       Radiant::AdminUI.send :include, SubmenuAdminUI
       admin.submenu_link = Radiant::AdminUI.load_default_submenu_link_regions
     end
-
+    
+    admin.tabs['Pages'].add_link('page tree', '/admin/pages')
   end
   
   def deactivate
