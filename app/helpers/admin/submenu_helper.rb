@@ -24,7 +24,11 @@ module Admin::SubmenuHelper
       def navigation_submenu_links
         links = SubmenuLink.visible_to(current_user).map {|link| link_to(link.name, urlize_path(link.url)) }
         links << link_to("edit menu", admin_submenu_links_url, :class => 'admin') if admin?
-        %{<div id="submenu_links">#{links.join(separator)}</div>} if links.any?
+        if links.any?
+          %{<div id="submenu_links">#{links.join(separator)}</div>}
+        else
+          ""
+        end
       end
 
       def submenu_link_to(name, url)
