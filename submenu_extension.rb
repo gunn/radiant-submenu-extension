@@ -25,6 +25,12 @@ class SubmenuExtension < Radiant::Extension
     end
     
     admin.tabs['Pages'].add_link('page tree', '/admin/pages')
+    if admin.tabs["CSS"]
+      admin.tabs.remove "CSS"
+      admin.tabs.remove "JS"
+      admin.tabs['Pages'].add_link('stylesheets', '/admin/css', :visibility => [:admin, :developer])
+      admin.tabs['Pages'].add_link('javascripts', '/admin/js', :visibility => [:admin, :developer])
+    end
   end
   
   def deactivate
